@@ -30,7 +30,7 @@ export const HomeRowSection = memo(function HomeRowSection({
 
   return (
     <Carousel
-      title={t(row.titleKey, titleParams)}
+      title={t(row.titleKey, { ...(titleParams ?? {}) })}
       entries={entries}
       variant={row.variant}
       scale={scale}

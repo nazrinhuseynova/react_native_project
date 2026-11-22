@@ -13,7 +13,13 @@ import type { WatchedItem } from '../../application/hooks/useWatchedTitles';
 import { WatchedBadge } from './WatchedBadge';
 
 const useStyles = makeStyles(({ colors, radius, spacing }) => ({
-  row: { flexDirection: 'row', alignItems: 'center', gap: spacing.md, paddingVertical: spacing.sm, paddingHorizontal: spacing.lg },
+  row: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.md,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.lg,
+  },
   thumb: { width: 128, height: 72, borderRadius: radius.sm, backgroundColor: colors.skeleton },
   text: { flex: 1, gap: spacing.xs },
 }));
@@ -35,7 +41,11 @@ export function HistoryRow({ item, onPress, onRemove }: HistoryRowProps) {
 
   return (
     <View style={styles.row}>
-      <ScalePressable {...buttonA11y(title.name)} onPress={() => onPress(title.id)} style={{ flexDirection: 'row', flex: 1, gap: 12 }}>
+      <ScalePressable
+        {...buttonA11y(title.name)}
+        onPress={() => onPress(title.id)}
+        style={{ flexDirection: 'row', flex: 1, gap: 12 }}
+      >
         {artwork ? (
           <Image source={{ uri: artwork.medium }} contentFit="cover" style={styles.thumb} />
         ) : (

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { useTranslation } from 'react-i18next';
 
@@ -12,14 +12,44 @@ import { IconButton } from '@/shared/ui/IconButton';
 import { SeekBar } from './SeekBar';
 
 const useStyles = makeStyles(({ colors, spacing }) => ({
-  root: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.45)', justifyContent: 'space-between' },
-  top: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: spacing.lg, paddingTop: spacing.lg },
+  root: {
+    position: 'absolute' as const,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: 'rgba(0,0,0,0.45)',
+    justifyContent: 'space-between' as const,
+  },
+  top: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.lg,
+  },
   titleBox: { flex: 1, marginHorizontal: spacing.sm },
-  center: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', columnGap: spacing.xxl },
+  center: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    columnGap: spacing.xxl,
+  },
   bottom: { paddingHorizontal: spacing.xl, paddingBottom: spacing.lg },
-  times: { flexDirection: 'row', justifyContent: 'space-between' },
-  actions: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: spacing.xs },
-  actionGroup: { flexDirection: 'row', alignItems: 'center', columnGap: spacing.sm },
+  times: {
+    flexDirection: 'row' as const,
+    justifyContent: 'space-between' as const,
+  },
+  actions: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    justifyContent: 'space-between' as const,
+    marginTop: spacing.xs,
+  },
+  actionGroup: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    columnGap: spacing.sm,
+  },
 }));
 
 type PlayerControlsProps = {

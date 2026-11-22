@@ -9,10 +9,19 @@ import { StarRating } from '@/shared/ui/StarRating';
 import type { Review } from '../../domain/entities/Review';
 
 const useStyles = makeStyles(({ colors, radius, spacing }) => ({
-  card: { backgroundColor: colors.card, borderRadius: radius.md, padding: spacing.lg, gap: spacing.sm },
-  header: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  card: {
+    backgroundColor: colors.card,
+    borderRadius: radius.md,
+    padding: spacing.lg,
+    gap: spacing.sm,
+  },
+  header: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    justifyContent: 'space-between' as const,
+  },
   author: { flex: 1 },
-  actions: { flexDirection: 'row' },
+  actions: { flexDirection: 'row' as const },
 }));
 
 type ReviewCardProps = {

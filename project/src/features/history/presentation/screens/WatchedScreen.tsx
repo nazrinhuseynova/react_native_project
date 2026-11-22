@@ -20,7 +20,13 @@ import { ClearHistoryDialog } from '../components/ClearHistoryDialog';
 import { HistoryRow } from '../components/HistoryRow';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  header: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, paddingHorizontal: spacing.lg, paddingTop: spacing.sm },
+  header: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.sm,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
+  },
   title: { flex: 1 },
   skeletons: { gap: spacing.md, padding: spacing.lg },
 }));

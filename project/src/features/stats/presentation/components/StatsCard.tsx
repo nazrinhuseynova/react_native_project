@@ -14,10 +14,9 @@ const useStyles = makeStyles(({ colors, radius, spacing }) => ({
   tiles: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md },
 }));
 
-
 export function StatsCard() {
   const { t } = useTranslation();
-  const styles = useStyles();
+  const styles: Record<string, any> = useStyles();
   const { stats, isLoading } = useWatchStats();
 
   if (isLoading) {

@@ -6,7 +6,7 @@ import { useCountdown } from '@/shared/hooks/useCountdown';
 export function useResendTimer(autoStart = true) {
   const { auth } = useServices();
   const cooldownSeconds = auth.policies.otp.resendCooldownSeconds;
-  const countdown = useCountdown();
+  const countdown = useCountdown(cooldownSeconds, false);
   const { start } = countdown;
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export function useResendTimer(autoStart = true) {
   }, [autoStart, cooldownSeconds, start]);
 
   return {
-    secondsLeft: countdown.seconds,
+    secondsLeft: countdown.remaining,
     canResend: !countdown.isRunning,
     restart: () => start(cooldownSeconds),
   };

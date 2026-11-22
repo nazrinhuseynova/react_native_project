@@ -27,10 +27,20 @@ import { StatusPicker } from '../components/StatusPicker';
 import { SwipeToRemoveRow } from '../components/SwipeToRemoveRow';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  header: { paddingHorizontal: spacing.lg, paddingTop: spacing.sm, gap: spacing.md, paddingBottom: spacing.sm },
-  row: { flexDirection: 'row', gap: spacing.md, padding: spacing.lg },
+  header: {
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
+    gap: spacing.md,
+    paddingBottom: spacing.sm,
+  },
+  row: { flexDirection: 'row' as const, gap: spacing.md, padding: spacing.lg },
   rowText: { flex: 1, gap: spacing.sm },
-  skeletons: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, padding: spacing.lg },
+  skeletons: {
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    gap: spacing.md,
+    padding: spacing.lg,
+  },
 }));
 
 export function WatchlistScreen() {

@@ -9,7 +9,11 @@ import { IconButton } from '@/shared/ui/IconButton';
 import { REACTIONS, type Reaction } from '../../domain/entities/Reaction';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  row: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
+  row: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.md,
+  },
 }));
 
 const ICONS: Record<Reaction, { on: IconName; off: IconName }> = {

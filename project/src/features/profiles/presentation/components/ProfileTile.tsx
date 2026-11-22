@@ -20,20 +20,25 @@ type ProfileTileProps = {
 };
 
 const useStyles = makeStyles(({ spacing, colors }) => ({
-  tile: { alignItems: 'center', width: 112, marginBottom: spacing.lg },
+  tile: { alignItems: 'center' as const, width: 112, marginBottom: spacing.lg },
   avatarWrap: { marginBottom: spacing.sm },
   badge: {
-    position: 'absolute',
+    position: 'absolute' as const,
     right: -4,
     bottom: -4,
     width: 28,
     height: 28,
     borderRadius: 14,
     backgroundColor: colors.surfaceElevated,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
   },
-  meta: { flexDirection: 'row', alignItems: 'center', gap: spacing.xs, marginTop: spacing.xs },
+  meta: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.xs,
+    marginTop: spacing.xs,
+  },
 }));
 
 export function ProfileTile({ profile, onPress, editing = false, size = 96 }: ProfileTileProps) {

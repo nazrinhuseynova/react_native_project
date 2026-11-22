@@ -9,10 +9,10 @@ import { makeStyles } from '@/shared/theme/makeStyles';
 import { AppText } from '@/shared/ui/AppText';
 
 const useStyles = makeStyles(({ colors, radius, spacing }) => ({
-  row: { flexDirection: 'row', gap: spacing.md, paddingVertical: spacing.sm },
+  row: { flexDirection: 'row' as const, gap: spacing.md, paddingVertical: spacing.sm },
   still: { width: 120, height: 68, borderRadius: radius.sm, backgroundColor: colors.skeleton },
   text: { flex: 1, gap: spacing.xs },
-  head: { flexDirection: 'row', justifyContent: 'space-between', gap: spacing.sm },
+  head: { flexDirection: 'row' as const, justifyContent: 'space-between' as const, gap: spacing.sm },
 }));
 
 type EpisodeRowProps = {

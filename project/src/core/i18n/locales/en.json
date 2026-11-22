@@ -63,9 +63,7 @@
     "validation": { "notUpcoming": "This title is already out." },
     "notification": { "title": "{{title}} is out now", "body": "Tap to see details." },
     "empty": { "title": "Nothing to show", "message": "Check back later." }
-  }
-}
-{
+  },
   "search": {
     "placeholder": "Search movies, shows, actors or genres",
     "clear": "Clear",

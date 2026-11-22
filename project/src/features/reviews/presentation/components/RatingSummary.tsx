@@ -8,11 +8,25 @@ import { StarRating } from '@/shared/ui/StarRating';
 import type { ReviewSummary } from '../../domain/entities/Review';
 
 const useStyles = makeStyles(({ colors, radius, spacing }) => ({
-  root: { flexDirection: 'row', alignItems: 'center', gap: spacing.xl },
-  average: { alignItems: 'center', gap: spacing.xs },
+  root: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.xl,
+  },
+  average: { alignItems: 'center' as const, gap: spacing.xs },
   bars: { flex: 1, gap: spacing.xs },
-  barRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
-  track: { flex: 1, height: 6, borderRadius: radius.pill, backgroundColor: colors.surfaceElevated, overflow: 'hidden' },
+  barRow: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.sm,
+  },
+  track: {
+    flex: 1,
+    height: 6,
+    borderRadius: radius.pill,
+    backgroundColor: colors.surfaceElevated,
+    overflow: 'hidden' as const,
+  },
   fill: { height: 6, backgroundColor: colors.star },
 }));
 

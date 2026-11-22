@@ -9,9 +9,18 @@ import { AppText } from '@/shared/ui/AppText';
 import { useStorageUsage } from '../../application/hooks/useStorageUsage';
 
 const useStyles = makeStyles(({ colors, spacing, radius }) => ({
-  track: { height: 8, borderRadius: radius.pill, backgroundColor: colors.surfaceElevated, overflow: 'hidden' },
+  track: {
+    height: 8,
+    borderRadius: radius.pill,
+    backgroundColor: colors.surfaceElevated,
+    overflow: 'hidden' as const,
+  },
   fill: { height: 8, borderRadius: radius.pill, backgroundColor: colors.primary },
-  row: { flexDirection: 'row', justifyContent: 'space-between', marginTop: spacing.xs },
+  row: {
+    flexDirection: 'row' as const,
+    justifyContent: 'space-between' as const,
+    marginTop: spacing.xs,
+  },
 }));
 
 export function StorageUsageBar() {

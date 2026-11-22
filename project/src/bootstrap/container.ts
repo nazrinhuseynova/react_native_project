@@ -185,7 +185,7 @@ import { storageKeys } from '@/core/storage/storageKeys';
 
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 const OMDB_BASE_URL = 'https://www.omdbapi.com';
-// Demo mərhələsi üçün açıq nümunə video. Real mənbə gələndə burada dəyişir.
+
 const DEMO_DOWNLOAD_URL =
   'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
 
@@ -196,14 +196,14 @@ function toTmdbLanguage(language: string): string {
   return 'en-US';
 }
 
-/** Müvəqqəti qapı: abunəlik/kirayə modulları (Hissə 2) gələnə qədər hər şey izlənə bilir. */
+
 class FreeEntitlementGate implements EntitlementGate {
   async check(): ReturnType<EntitlementGate['check']> {
     return { allowed: true, source: 'free' };
   }
 }
 
-// ── Servis qrupları ────────────────────────────────────────────────
+
 
 function createAuthServices({
   supabase,
@@ -216,7 +216,7 @@ function createAuthServices({
   const devices = new SupabaseDeviceRepository(supabase);
   const biometric = new BiometricStrategy(supabase, new BiometricCredentialStore(secureStorage));
 
-  // Yeni giriş üsulu = yeni Strategy faylı + bu siyahıya 1 sətir.
+
   const strategies = createAuthStrategyRegistry([
     new EmailPasswordStrategy(supabase),
     new GoogleOAuthStrategy(supabase),
@@ -583,7 +583,7 @@ function createSettingsServices({ storage }: { storage: KeyValueStorage }) {
   };
 }
 
-// ── Tiplər ─────────────────────────────────────────────────────────
+
 
 export type AuthServices = ReturnType<typeof createAuthServices>;
 export type AccountServices = ReturnType<typeof createAccountServices>;
@@ -636,7 +636,7 @@ export type Services = {
   settings: SettingsServices;
 };
 
-// ── Composition root ───────────────────────────────────────────────
+
 
 export function createServices(): Services {
   const logger = new ConsoleLogger();

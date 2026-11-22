@@ -13,8 +13,8 @@ import { REVIEW_TEXT_MAX } from '../../domain/policies/ReviewPolicy';
 
 const useStyles = makeStyles(({ spacing }) => ({
   root: { gap: spacing.lg },
-  stars: { alignItems: 'center', gap: spacing.sm },
-  input: { minHeight: 120, textAlignVertical: 'top' },
+  stars: { alignItems: 'center' as const, gap: spacing.sm },
+  input: { minHeight: 120, textAlignVertical: 'top' as const },
 }));
 
 type ReviewFormProps = {

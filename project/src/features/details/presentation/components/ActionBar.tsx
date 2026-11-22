@@ -14,7 +14,7 @@ import { Button } from '@/shared/ui/Button';
 
 const useStyles = makeStyles(({ spacing }) => ({
   root: { gap: spacing.md },
-  actions: { flexDirection: 'row', justifyContent: 'space-around' },
+  actions: { flexDirection: 'row' as const, justifyContent: 'space-around' as const },
 }));
 
 type ActionItemProps = {

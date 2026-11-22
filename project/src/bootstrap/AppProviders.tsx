@@ -16,7 +16,7 @@ import { startup } from './startup';
 const services = createServices();
 const persistOptions = createPersistOptions(createQueryPersister(services.storage));
 
-/** Tema seçimi settings-dən oxunur və prop kimi ThemeProvider-ə ötürülür. */
+
 function ThemedProviders({ children }: PropsWithChildren) {
   const { preference } = useThemePreference();
 

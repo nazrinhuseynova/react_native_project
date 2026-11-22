@@ -20,3 +20,4 @@ export type AsyncState<T, E = Error> =
   | { status: 'error'; error: E };
  
 export type IconName = ComponentProps<typeof Ionicons>['name'];
+

@@ -8,10 +8,9 @@ export type DownloadEngineEvent =
   | { type: 'failed'; id: string; message: string };
 
 export interface DownloadEngine {
- 
   start(item: DownloadItem): Promise<void>;
   pause(id: string): Promise<void>;
-  
+  cancel(id: string): Promise<void>;
   deleteFile(fileUri: string): Promise<void>;
   subscribe(listener: (event: DownloadEngineEvent) => void): () => void;
 }

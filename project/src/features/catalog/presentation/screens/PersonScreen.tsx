@@ -22,7 +22,7 @@ const BIOGRAPHY_PREVIEW_LINES = 5;
 const useStyles = makeStyles(({ spacing }) => ({
   topBar: { paddingHorizontal: spacing.lg, paddingTop: spacing.sm },
   header: { padding: spacing.lg, gap: spacing.md },
-  identity: { flexDirection: 'row', alignItems: 'center', gap: spacing.lg },
+  identity: { flexDirection: 'row' as const, alignItems: 'center' as const, gap: spacing.lg },
   identityText: { flex: 1, gap: spacing.xs },
 }));
 

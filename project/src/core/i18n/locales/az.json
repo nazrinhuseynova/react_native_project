@@ -63,9 +63,7 @@
     "validation": { "notUpcoming": "Bu başlıq artıq çıxıb." },
     "notification": { "title": "{{title}} artıq çıxıb", "body": "Ətraflı görmək üçün toxun." },
     "empty": { "title": "Göstəriləcək heç nə yoxdur", "message": "Bir az sonra yenidən yoxla." }
-  }
-}
-{
+  },
   "search": {
     "placeholder": "Film, serial, aktyor və ya janr axtar",
     "clear": "Təmizlə",

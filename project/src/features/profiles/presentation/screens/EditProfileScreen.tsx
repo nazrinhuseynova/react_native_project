@@ -34,7 +34,12 @@ import { PinSetupSheet } from '../components/PinSetupSheet';
 
 const useStyles = makeStyles(({ spacing }) => ({
   section: { marginTop: spacing.xl },
-  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginTop: spacing.sm },
+  chips: {
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    gap: spacing.sm,
+    marginTop: spacing.sm,
+  },
   actions: { marginTop: spacing.xl, gap: spacing.sm },
 }));
 

@@ -5,7 +5,7 @@ import type { TitleId } from '@/features/catalog';
 import { useActiveProfile } from '@/features/profiles';
 
 import { progressFraction } from '../../domain/entities/WatchProgress';
-import { historyKeys } from '../historyKeys';
+import { historyKeys } from '../historyKey';
 
 export function useTitleProgress(titleId: TitleId | null) {
   const { history } = useServices();

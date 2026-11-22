@@ -3,7 +3,12 @@ import { View } from 'react-native';
 import { makeStyles } from '@/shared/theme/makeStyles';
 
 const useStyles = makeStyles(({ colors, spacing }) => ({
-  row: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: spacing.sm },
+  row: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    gap: spacing.sm,
+  },
   dot: { width: 8, height: 8, borderRadius: 4, backgroundColor: colors.border },
   active: { width: 24, backgroundColor: colors.primary },
 }));

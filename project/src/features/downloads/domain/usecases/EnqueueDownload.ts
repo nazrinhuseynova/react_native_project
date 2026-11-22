@@ -20,7 +20,7 @@ export type EnqueueInput = {
 export type NetworkContext = {
   connection: ConnectionType;
   wifiOnly: boolean;
-  /** true: şəbəkə uyğun deyilsə xəta atma, növbəyə qoy (Smart Downloads) */
+ 
   deferIfBlocked?: boolean;
 };
 

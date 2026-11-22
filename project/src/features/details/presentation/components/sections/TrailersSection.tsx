@@ -20,7 +20,15 @@ const CARD_WIDTH = 220;
 const useStyles = makeStyles(({ colors, radius, spacing }) => ({
   list: { gap: spacing.md },
   card: { width: CARD_WIDTH, gap: spacing.xs },
-  thumb: { width: CARD_WIDTH, height: 124, borderRadius: radius.md, backgroundColor: colors.skeleton, alignItems: 'center', justifyContent: 'center', overflow: 'hidden' },
+  thumb: {
+    width: CARD_WIDTH,
+    height: 124,
+    borderRadius: radius.md,
+    backgroundColor: colors.skeleton,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    overflow: 'hidden' as const,
+  },
 }));
 
 function TrailerCard({ video }: { video: Video }) {

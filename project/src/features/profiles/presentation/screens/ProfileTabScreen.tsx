@@ -21,7 +21,12 @@ import { useProfiles } from '../../application/hooks/useProfiles';
 import { ProfileAvatar } from '../components/ProfileAvatar';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  head: { alignItems: 'center', marginTop: spacing.lg, marginBottom: spacing.xl, gap: spacing.xs },
+  head: {
+    alignItems: 'center' as const,
+    marginTop: spacing.lg,
+    marginBottom: spacing.xl,
+    gap: spacing.xs,
+  },
   section: { marginTop: spacing.xl },
 }));
 

@@ -13,7 +13,7 @@ import { GenreChip } from '../components/GenreChip';
 
 const useStyles = makeStyles(({ spacing }) => ({
   header: { marginTop: spacing.xl, marginBottom: spacing.lg, gap: spacing.sm },
-  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
+  chips: { flexDirection: 'row' as const, flexWrap: 'wrap' as const, gap: spacing.sm },
   footer: { padding: spacing.lg, gap: spacing.sm },
 }));
 

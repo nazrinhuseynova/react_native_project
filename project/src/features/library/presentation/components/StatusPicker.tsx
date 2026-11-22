@@ -7,7 +7,11 @@ import { Chip } from '@/shared/ui/Chip';
 import { WATCH_STATUSES, type WatchStatus } from '../../domain/entities/WatchStatus';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  row: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.xs },
+  row: {
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    gap: spacing.xs,
+  },
 }));
 
 type StatusPickerProps = {

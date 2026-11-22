@@ -9,7 +9,11 @@ import type { LibraryFilter } from '../../domain/filters/LibraryFilter';
 import type { LibrarySorter } from '../../domain/sorters/LibrarySorter';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  content: { paddingHorizontal: spacing.lg, gap: spacing.sm, alignItems: 'center' },
+  content: {
+    paddingHorizontal: spacing.lg,
+    gap: spacing.sm,
+    alignItems: 'center' as const,
+  },
 }));
 
 type LibraryToolbarProps = {

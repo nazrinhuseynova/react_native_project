@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
- 
+
 import { useTheme } from '../theme/useTheme';
 import { AppText } from './AppText';
- 
+
 interface OtpInputProps {
   value: string;
   onChange: (value: string) => void;
@@ -13,7 +13,7 @@ interface OtpInputProps {
   autoFocus?: boolean;
   disabled?: boolean;
 }
- 
+
 export function OtpInput({
   value,
   onChange,
@@ -26,24 +26,24 @@ export function OtpInput({
   const { colors, radius, spacing, typography } = useTheme();
   const inputRef = useRef<TextInput>(null);
   const [focused, setFocused] = useState(false);
- 
+
   useEffect(() => {
     if (value.length === length) onComplete?.(value);
   }, [value, length, onComplete]);
- 
+
   const handleChange = (text: string) => {
     onChange(text.replace(/\D/g, '').slice(0, length));
   };
- 
+
   const activeIndex = Math.min(value.length, length - 1);
- 
+
   return (
     <View>
       <Pressable
         accessible
         accessibilityRole="none"
         accessibilityLabel={`Verification code, ${value.length} of ${length} digits entered`}
-        onPress={() => inputRef.current?.focus()}
+        onPress={() => (inputRef.current as any)?.focus()}
         style={styles.row}
       >
         {Array.from({ length }).map((_, index) => {
@@ -57,7 +57,7 @@ export function OtpInput({
                 {
                   borderRadius: radius.md,
                   backgroundColor: colors.inputBackground,
-                  borderColor: error ? colors.danger : isActive ? colors.primary : colors.inputBorder,
+                  borderColor: (error ? colors.danger : isActive ? colors.primary : colors.inputBorder) as any,
                 },
               ]}
             >
@@ -69,7 +69,7 @@ export function OtpInput({
         })}
       </Pressable>
       <TextInput
-        ref={inputRef}
+        ref={inputRef as any}
         value={value}
         onChangeText={handleChange}
         onFocus={() => setFocused(true)}
@@ -91,7 +91,7 @@ export function OtpInput({
     </View>
   );
 }
- 
+
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', justifyContent: 'space-between', gap: 8 },
   cell: { flex: 1, height: 56, borderWidth: 1.5, alignItems: 'center', justifyContent: 'center' },

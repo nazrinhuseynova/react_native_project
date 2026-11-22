@@ -22,11 +22,21 @@ type AvatarPickerProps = {
 };
 
 const useStyles = makeStyles(({ spacing, colors }) => ({
-  preview: { alignItems: 'center', marginBottom: spacing.lg },
-  row: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: spacing.md },
+  preview: { alignItems: 'center' as const, marginBottom: spacing.lg },
+  row: {
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    justifyContent: 'center' as const,
+    gap: spacing.md,
+  },
   swatch: { width: 44, height: 44, borderRadius: 22, borderWidth: 3 },
   actions: { marginTop: spacing.lg, gap: spacing.sm },
-  denied: { marginTop: spacing.md, padding: spacing.md, borderRadius: 12, backgroundColor: colors.primarySoft },
+  denied: {
+    marginTop: spacing.md,
+    padding: spacing.md,
+    borderRadius: 12,
+    backgroundColor: colors.primarySoft,
+  },
 }));
 
 export function AvatarPicker({

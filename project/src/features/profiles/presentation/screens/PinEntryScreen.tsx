@@ -14,7 +14,11 @@ import { useProfiles } from '../../application/hooks/useProfiles';
 import { ProfileAvatar } from '../components/ProfileAvatar';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  center: { flex: 1, alignItems: 'center', justifyContent: 'center' },
+  center: {
+    flex: 1,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+  },
   avatar: { marginBottom: spacing.lg },
   title: { marginBottom: spacing.xs },
   pad: { marginTop: spacing.xl },

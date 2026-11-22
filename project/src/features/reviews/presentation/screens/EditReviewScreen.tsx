@@ -15,7 +15,11 @@ import { useSubmitReview } from '../../application/hooks/useSubmitReview';
 import { ReviewForm } from '../components/ReviewForm';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  header: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  header: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.sm,
+  },
   title: { flex: 1 },
   body: { paddingTop: spacing.xl },
 }));

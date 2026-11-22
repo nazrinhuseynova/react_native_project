@@ -44,11 +44,11 @@ export function TitleGrid({
       columnWrapperStyle={{ gap }}
       contentContainerStyle={{ padding: spacing.lg, gap, flexGrow: 1 }}
       showsVerticalScrollIndicator={false}
-      ListHeaderComponent={header}
+      ListHeaderComponent={header ?? undefined}
       refreshControl={refreshControl}
       onEndReached={onEndReached}
       onEndReachedThreshold={0.6}
-      ListFooterComponent={
+      ListFooterComponent={() =>
         isLoadingMore ? (
           <View style={{ paddingVertical: spacing.lg }}>
             <ActivityIndicator color={colors.primary} />
@@ -58,4 +58,4 @@ export function TitleGrid({
       renderItem={({ item }) => <PosterCard title={item} width={itemWidth} onPress={onPressTitle} />}
     />
   );
-}
+} 

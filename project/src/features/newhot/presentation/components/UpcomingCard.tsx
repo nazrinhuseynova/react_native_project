@@ -30,22 +30,22 @@ const useStyles = makeStyles(({ spacing, radius, colors }) => ({
   media: {
     aspectRatio: 16 / 9,
     borderRadius: radius.md,
-    overflow: 'hidden',
+    overflow: 'hidden' as const,
     backgroundColor: colors.skeleton,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
   },
   playCircle: {
     width: 56,
     height: 56,
     borderRadius: 28,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
     backgroundColor: 'rgba(0,0,0,0.6)',
   },
-  rank: { position: 'absolute', left: spacing.md, top: spacing.sm },
+  rank: { position: 'absolute' as const, left: spacing.md, top: spacing.sm },
   body: { gap: spacing.xs, paddingHorizontal: spacing.xs },
-  actions: { flexDirection: 'row', gap: spacing.sm, marginTop: spacing.sm },
+  actions: { flexDirection: 'row' as const, gap: spacing.sm, marginTop: spacing.sm },
 }));
 
 type UpcomingCardProps = {

@@ -20,8 +20,17 @@ import { TitleGrid } from '../components/TitleGrid';
 
 const useStyles = makeStyles(({ spacing }) => ({
   header: { paddingHorizontal: spacing.lg, paddingTop: spacing.sm, gap: spacing.md },
-  titleRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
-  skeletonGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, padding: spacing.lg },
+  titleRow: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.sm,
+  },
+  skeletonGrid: {
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    gap: spacing.md,
+    padding: spacing.lg,
+  },
 }));
 
 export function GenreScreen() {

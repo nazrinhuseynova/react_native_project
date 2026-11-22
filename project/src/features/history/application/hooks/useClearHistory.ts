@@ -8,7 +8,7 @@ import type { TitleId } from '@/features/catalog';
 import { useActiveProfile } from '@/features/profiles';
 import { useToast } from '@/shared/ui/ToastProvider';
 
-import { historyKeys } from '../historyKeys';
+import { historyKeys } from '../historyKey';
 
 export function useClearHistory() {
   const { history } = useServices();

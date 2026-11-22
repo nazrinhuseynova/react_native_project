@@ -47,8 +47,13 @@ import { VideoSurface } from '../components/VideoSurface';
 
 const useStyles = makeStyles(() => ({
   root: { flex: 1, backgroundColor: '#000000' },
-  center: { flex: 1, backgroundColor: '#000000', alignItems: 'center', justifyContent: 'center' },
-  lockSlot: { position: 'absolute', left: 24, top: '42%' },
+  center: {
+    flex: 1,
+    backgroundColor: '#000000',
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+  },
+  lockSlot: { position: 'absolute' as const, left: 24, top: '42%' },
 }));
 
 type Sheet = 'speed' | 'tracks' | 'quality' | null;

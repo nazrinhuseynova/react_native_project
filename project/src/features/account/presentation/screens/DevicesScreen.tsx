@@ -92,7 +92,7 @@ export function DevicesScreen() {
           renderItem={({ item }) => (
             <DeviceRow device={item} disabled={isRevoking} onRemove={setTarget} />
           )}
-          ListFooterComponent={
+          ListFooterComponent={() =>
             devices.length > 0 ? (
               <View style={{ paddingVertical: 24 }}>
                 <Button

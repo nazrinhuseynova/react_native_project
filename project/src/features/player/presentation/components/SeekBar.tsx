@@ -10,12 +10,29 @@ import { SeekCalculator } from '../../domain/services/SeekCalculator';
 const calculator = new SeekCalculator();
 
 const useStyles = makeStyles(({ colors }) => ({
-  hit: { height: 36, justifyContent: 'center' },
-  track: { height: 4, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.28)', overflow: 'hidden' },
-  buffered: { position: 'absolute', left: 0, top: 0, bottom: 0, backgroundColor: 'rgba(255,255,255,0.45)' },
-  played: { position: 'absolute', left: 0, top: 0, bottom: 0, backgroundColor: colors.primary },
+  hit: { height: 36, justifyContent: 'center' as const },
+  track: {
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: 'rgba(255,255,255,0.28)',
+    overflow: 'hidden' as const,
+  },
+  buffered: {
+    position: 'absolute' as const,
+    left: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(255,255,255,0.45)',
+  },
+  played: {
+    position: 'absolute' as const,
+    left: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: colors.primary,
+  },
   thumb: {
-    position: 'absolute',
+    position: 'absolute' as const,
     width: 14,
     height: 14,
     borderRadius: 7,

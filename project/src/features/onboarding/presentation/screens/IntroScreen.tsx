@@ -19,7 +19,11 @@ import { IntroPage } from '../components/IntroPage';
 import { PageDots } from '../components/PageDots';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  topBar: { alignItems: 'flex-end', paddingHorizontal: spacing.lg, paddingTop: spacing.sm },
+  topBar: {
+    alignItems: 'flex-end' as const,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
+  },
   footer: { padding: spacing.lg, gap: spacing.lg },
 }));
 

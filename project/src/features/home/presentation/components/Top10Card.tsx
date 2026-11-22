@@ -1,6 +1,7 @@
 import { View } from 'react-native';
 
-import { PosterCard, type PosterCardTitle, type TitleId } from '@/features/catalog';
+import { PosterCard, type TitleId } from '@/features/catalog';
+import type { PosterCardTitle } from '@/features/catalog/presentation/components/PosterCard';
 import { useTheme } from '@/shared/theme/useTheme';
 import { AppText } from '@/shared/ui/AppText';
 

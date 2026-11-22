@@ -22,7 +22,12 @@ import { useParentalSettings } from '../../application/hooks/useParentalSettings
 import { MaturityPicker } from '../components/MaturityPicker';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  chips: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginBottom: spacing.lg },
+  chips: {
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    gap: spacing.sm,
+    marginBottom: spacing.lg,
+  },
   section: { marginTop: spacing.lg },
 }));
 

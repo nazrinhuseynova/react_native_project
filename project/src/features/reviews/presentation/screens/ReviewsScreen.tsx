@@ -23,7 +23,13 @@ import { ReactionButtons } from '../components/ReactionButtons';
 import { ReviewCard } from '../components/ReviewCard';
 
 const useStyles = makeStyles(({ spacing }) => ({
-  header: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm, paddingHorizontal: spacing.lg, paddingTop: spacing.sm },
+  header: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.sm,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
+  },
   title: { flex: 1 },
   top: { gap: spacing.lg, paddingBottom: spacing.md },
   list: { padding: spacing.lg, gap: spacing.md },
@@ -94,7 +100,13 @@ export function ReviewsScreen() {
         contentContainerStyle={styles.list}
         ListHeaderComponent={top}
         ListEmptyComponent={
-          mine ? null : <EmptyState icon="chatbubbles-outline" title={t('reviews.empty.title')} message={t('reviews.empty.message')} />
+          mine ? undefined : (
+            <EmptyState
+              icon="chatbubbles-outline"
+              title={t('reviews.empty.title')}
+              message={t('reviews.empty.message')}
+            />
+          )
         }
         renderItem={({ item }) => <ReviewCard review={item} />}
       />

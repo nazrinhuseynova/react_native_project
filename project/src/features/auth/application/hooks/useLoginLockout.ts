@@ -13,7 +13,7 @@ import {
 export function useLoginLockout() {
   const { storage, auth } = useServices();
   const policy = auth.policies.loginAttempt;
-  const countdown = useCountdown();
+  const countdown = useCountdown(0);
   const { start, reset } = countdown;
   const [state, setState] = useState<LoginAttemptState>(INITIAL_LOGIN_ATTEMPTS);
 
@@ -52,7 +52,7 @@ export function useLoginLockout() {
 
   return {
     isLocked: countdown.isRunning,
-    remainingSeconds: countdown.seconds,
+    remainingSeconds: countdown.remaining,
     registerFailure,
     registerSuccess,
   };

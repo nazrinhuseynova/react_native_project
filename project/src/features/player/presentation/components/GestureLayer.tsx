@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { PanResponder, StyleSheet, View, useWindowDimensions } from 'react-native';
+import { PanResponder, View, useWindowDimensions } from 'react-native';
 
 import { makeStyles } from '@/shared/theme/makeStyles';
 import { AppText } from '@/shared/ui/AppText';
@@ -19,14 +19,21 @@ const PAN_ACTIVATION_PX = 12;
 const TAP_SLOP_PX = 10;
 
 const useStyles = makeStyles(({ colors, spacing, radius }) => ({
-  row: { ...StyleSheet.absoluteFillObject, flexDirection: 'row' },
+  row: {
+    position: 'absolute' as const,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    flexDirection: 'row' as const,
+  },
   zone: { flex: 1 },
   hud: {
-    position: 'absolute',
-    alignSelf: 'center',
+    position: 'absolute' as const,
+    alignSelf: 'center' as const,
     top: '38%',
     minWidth: 120,
-    alignItems: 'center',
+    alignItems: 'center' as const,
     paddingVertical: spacing.md,
     paddingHorizontal: spacing.lg,
     borderRadius: radius.lg,

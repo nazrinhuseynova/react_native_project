@@ -12,7 +12,7 @@ const finder = new SkipSegmentFinder();
 
 const useStyles = makeStyles(({ colors, spacing, radius }) => ({
   button: {
-    position: 'absolute',
+    position: 'absolute' as const,
     right: spacing.xl,
     bottom: 110,
     paddingHorizontal: spacing.lg,

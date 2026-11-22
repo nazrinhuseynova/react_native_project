@@ -6,7 +6,7 @@ export { useWatchedTitles } from './application/hooks/useWatchedTitles';
 export type { WatchedItem } from './application/hooks/useWatchedTitles';
 export { useTitleProgress } from './application/hooks/useTitleProgress';
 export { useClearHistory } from './application/hooks/useClearHistory';
-export { historyKeys } from './application/historyKeys';
+export { historyKeys } from './application/historyKey';
 
 export { progressFraction } from './domain/entities/WatchProgress';
 export type { WatchProgress } from './domain/entities/WatchProgress';

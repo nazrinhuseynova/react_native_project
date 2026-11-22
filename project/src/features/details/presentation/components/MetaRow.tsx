@@ -10,7 +10,12 @@ import { Badge } from '@/shared/ui/Badge';
 import type { QualityBadge } from '../../domain/services/QualityBadges';
 
 const useStyles = makeStyles(({ colors, radius, spacing }) => ({
-  row: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: spacing.sm },
+  row: {
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    alignItems: 'center' as const,
+    gap: spacing.sm,
+  },
   outline: {
     paddingHorizontal: spacing.xs + 2,
     paddingVertical: 1,

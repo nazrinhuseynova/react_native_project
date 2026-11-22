@@ -99,7 +99,7 @@ export function NewAndHotScreen() {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.primary} />
         }
-        ListFooterComponent={
+        ListFooterComponent={() =>
           active.isFetchingNextPage ? <ActivityIndicator color={colors.primary} /> : null
         }
         renderItem={({ item, index }) => (

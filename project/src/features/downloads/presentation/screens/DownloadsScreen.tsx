@@ -26,8 +26,17 @@ import { StorageUsageBar } from '../components/StorageUsageBar';
 const useStyles = makeStyles(({ colors, spacing, radius }) => ({
   header: { paddingHorizontal: spacing.lg, paddingBottom: spacing.lg },
   list: { paddingHorizontal: spacing.lg, paddingBottom: spacing.xxl },
-  row: { flexDirection: 'row', alignItems: 'center', paddingVertical: spacing.sm },
-  poster: { width: 56, height: 84, borderRadius: radius.sm, backgroundColor: colors.surfaceElevated },
+  row: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    paddingVertical: spacing.sm,
+  },
+  poster: {
+    width: 56,
+    height: 84,
+    borderRadius: radius.sm,
+    backgroundColor: colors.surfaceElevated,
+  },
   info: { flex: 1, marginHorizontal: spacing.md },
 }));
 
@@ -127,8 +136,14 @@ export function DownloadsScreen() {
             onRemove={() => remove(item.id).catch(() => toast.error(t('errors.unknown')))}
           />
         )}
-        ListEmptyComponent={
-          isLoading ? null : <EmptyState icon="download-outline" title={t('downloads.emptyTitle')} message={t('downloads.emptyMessage')} />
+        ListEmptyComponent={() =>
+          isLoading ? null : (
+            <EmptyState
+              icon="download-outline"
+              title={t('downloads.emptyTitle')}
+              message={t('downloads.emptyMessage')}
+            />
+          )
         }
       />
     </Screen>

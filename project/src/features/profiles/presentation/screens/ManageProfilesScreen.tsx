@@ -18,22 +18,22 @@ import { ProfileTile } from '../components/ProfileTile';
 
 const useStyles = makeStyles(({ spacing, colors }) => ({
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    justifyContent: 'center' as const,
     columnGap: spacing.lg,
     marginTop: spacing.lg,
   },
-  addTile: { alignItems: 'center', width: 112, marginBottom: spacing.lg },
+  addTile: { alignItems: 'center' as const, width: 112, marginBottom: spacing.lg },
   addCircle: {
     width: 96,
     height: 96,
     borderRadius: 48,
     borderWidth: 2,
-    borderStyle: 'dashed',
+    borderStyle: 'dashed' as const,
     borderColor: colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
     marginBottom: spacing.sm,
   },
 }));

@@ -10,13 +10,17 @@ import { AppText } from '@/shared/ui/AppText';
 import type { OnboardingStep } from '../../domain/OnboardingStep';
 
 const useStyles = makeStyles(({ spacing, colors }) => ({
-  page: { alignItems: 'center', justifyContent: 'center', padding: spacing.xl },
+  page: {
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
+    padding: spacing.xl,
+  },
   iconCircle: {
     width: 128,
     height: 128,
     borderRadius: 64,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
     backgroundColor: colors.primarySoft,
     marginBottom: spacing.xl,
   },

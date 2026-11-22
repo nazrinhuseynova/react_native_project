@@ -6,7 +6,7 @@ import { useTitlesByIds, type Title } from '@/features/catalog';
 import { useActiveProfile } from '@/features/profiles';
 
 import type { WatchProgress } from '../../domain/entities/WatchProgress';
-import { historyKeys } from '../historyKeys';
+import { historyKeys } from '../historyKey';
 
 const EMPTY: WatchProgress[] = [];
 const MAX_WATCHED = 100;
