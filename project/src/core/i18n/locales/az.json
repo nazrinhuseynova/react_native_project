@@ -1,0 +1,67 @@
+{
+  "common": {
+    "ok": "Oldu",
+    "cancel": "Ləğv et",
+    "retry": "Yenidən cəhd et",
+    "save": "Yadda saxla",
+    "delete": "Sil",
+    "edit": "Redaktə et",
+    "close": "Bağla",
+    "back": "Geri",
+    "next": "Növbəti",
+    "skip": "Keç",
+    "done": "Hazırdır",
+    "loading": "Yüklənir...",
+    "search": "Axtar",
+    "seeAll": "Hamısına bax",
+    "continue": "Davam et",
+    "confirm": "Təsdiqlə"
+  },
+  "network": {
+    "offline": "İnternet bağlantısı yoxdur",
+    "goToDownloads": "Yükləmələrə keç",
+    "backOnline": "İnternet bağlantısı bərpa olundu"
+  },
+  "nav": {
+    "home": "Ana səhifə",
+    "newHot": "Yeni və Məşhur",
+    "search": "Axtarış",
+    "watchlist": "Siyahım",
+    "profile": "Profil",
+    "watchedMovies": "İzlənmiş filmlər",
+    "downloads": "Yükləmələr",
+    "subscription": "Abunəlik",
+    "settings": "Ayarlar"
+  },
+  "errors": {
+    "unknown": "Xəta baş verdi. Yenidən cəhd edin.",
+    "validation": "Daxil edilən məlumatların bir hissəsi düzgün deyil.",
+    "notFound": "Axtardığınız məlumat tapılmadı.",
+    "rateLimit": "Çox sayda sorğu göndərildi. Bir az sonra yenidən cəhd edin.",
+    "network": {
+      "offline": "İnternet bağlantısı yoxdur.",
+      "timeout": "Sorğu çox uzun çəkdi. Yenidən cəhd edin.",
+      "http": "Serverlə əlaqədə problem yarandı.",
+      "aborted": "Sorğu ləğv edildi."
+    },
+    "auth": {
+      "invalid_credentials": "Email və ya şifrə yanlışdır.",
+      "email_not_confirmed": "Email ünvanınız hələ təsdiqlənməyib.",
+      "user_already_exists": "Bu email ilə hesab artıq mövcuddur.",
+      "session_expired": "Sessiyanın vaxtı bitib. Yenidən daxil olun.",
+      "unauthorized": "Bu əməliyyat üçün icazəniz yoxdur.",
+      "weak_password": "Şifrə kifayət qədər güclü deyil.",
+      "too_many_attempts": "Çox sayda uğursuz cəhd oldu. Bir az sonra yenidən cəhd edin.",
+      "otp_invalid": "Kod yanlışdır.",
+      "otp_expired": "Kodun vaxtı bitib.",
+      "unknown": "Daxil olarkən xəta baş verdi."
+    },
+    "payment": {
+      "declined": "Ödəniş rədd edildi.",
+      "insufficient_funds": "Kartda kifayət qədər vəsait yoxdur.",
+      "expired_card": "Kartın müddəti bitib.",
+      "requires_authentication": "Ödənişi təsdiqləmək lazımdır.",
+      "unknown": "Ödəniş zamanı xəta baş verdi."
+    }
+  }
+}

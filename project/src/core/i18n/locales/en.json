@@ -1,0 +1,67 @@
+{
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "retry": "Try again",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "skip": "Skip",
+    "done": "Done",
+    "loading": "Loading...",
+    "search": "Search",
+    "seeAll": "See all",
+    "continue": "Continue",
+    "confirm": "Confirm"
+  },
+  "network": {
+    "offline": "No internet connection",
+    "goToDownloads": "Go to Downloads",
+    "backOnline": "You are back online"
+  },
+  "nav": {
+    "home": "Home",
+    "newHot": "New & Hot",
+    "search": "Search",
+    "watchlist": "Watchlist",
+    "profile": "Profile",
+    "watchedMovies": "Watched Movies",
+    "downloads": "Downloads",
+    "subscription": "Subscription",
+    "settings": "Settings"
+  },
+  "errors": {
+    "unknown": "Something went wrong. Please try again.",
+    "validation": "Some of the entered information is not valid.",
+    "notFound": "We could not find what you were looking for.",
+    "rateLimit": "Too many requests. Please try again in a moment.",
+    "network": {
+      "offline": "No internet connection.",
+      "timeout": "The request took too long. Please try again.",
+      "http": "There was a problem connecting to the server.",
+      "aborted": "The request was cancelled."
+    },
+    "auth": {
+      "invalid_credentials": "Incorrect email or password.",
+      "email_not_confirmed": "Your email address is not confirmed yet.",
+      "user_already_exists": "An account with this email already exists.",
+      "session_expired": "Your session has expired. Please sign in again.",
+      "unauthorized": "You do not have permission to do this.",
+      "weak_password": "The password is not strong enough.",
+      "too_many_attempts": "Too many failed attempts. Please try again later.",
+      "otp_invalid": "The code is incorrect.",
+      "otp_expired": "The code has expired.",
+      "unknown": "Something went wrong while signing in."
+    },
+    "payment": {
+      "declined": "The payment was declined.",
+      "insufficient_funds": "There are not enough funds on the card.",
+      "expired_card": "The card has expired.",
+      "requires_authentication": "The payment needs to be confirmed.",
+      "unknown": "Something went wrong with the payment."
+    }
+  }
+}
