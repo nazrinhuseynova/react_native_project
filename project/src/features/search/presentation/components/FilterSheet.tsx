@@ -19,8 +19,16 @@ import {
 const useStyles = makeStyles(({ spacing }) => ({
   body: { maxHeight: 460 },
   group: { marginBottom: spacing.lg, gap: spacing.sm },
-  wrap: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
-  actions: { flexDirection: 'row', gap: spacing.md, marginTop: spacing.sm },
+  wrap: {
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    gap: spacing.sm,
+  },
+  actions: {
+    flexDirection: 'row' as const,
+    gap: spacing.md,
+    marginTop: spacing.sm,
+  },
   action: { flex: 1 },
 }));
 

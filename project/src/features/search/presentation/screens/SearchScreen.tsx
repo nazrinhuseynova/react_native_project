@@ -24,7 +24,12 @@ import { TopSearchesList } from '../components/TopSearchesList';
 const useStyles = makeStyles(({ spacing }) => ({
   header: { paddingHorizontal: spacing.lg, paddingTop: spacing.sm, paddingBottom: spacing.md },
   idle: { padding: spacing.lg },
-  skeletons: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, padding: spacing.lg },
+  skeletons: {
+    flexDirection: 'row' as const,
+    flexWrap: 'wrap' as const,
+    gap: spacing.md,
+    padding: spacing.lg,
+  },
 }));
 
 export function SearchScreen() {

@@ -12,8 +12,13 @@ import { AppText } from '@/shared/ui/AppText';
 import { SectionHeader } from '@/shared/ui/SectionHeader';
 
 const useStyles = makeStyles(({ colors, radius, spacing }) => ({
-  row: { flexDirection: 'row', alignItems: 'center', gap: spacing.md, paddingVertical: spacing.xs },
-  rank: { width: 24, textAlign: 'center' },
+  row: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.md,
+    paddingVertical: spacing.xs,
+  },
+  rank: { width: 24, textAlign: 'center' as const },
   poster: { width: 48, height: 72, borderRadius: radius.sm, backgroundColor: colors.skeleton },
   name: { flex: 1 },
 }));

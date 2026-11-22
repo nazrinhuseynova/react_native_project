@@ -7,18 +7,22 @@ import { IconButton } from '@/shared/ui/IconButton';
 import { TextField } from '@/shared/ui/TextField';
 
 const useStyles = makeStyles(({ colors, spacing }) => ({
-  row: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  row: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.sm,
+  },
   field: { flex: 1 },
   counter: {
-    position: 'absolute',
+    position: 'absolute' as const,
     top: 2,
     right: 2,
     minWidth: 16,
     height: 16,
     borderRadius: 8,
     paddingHorizontal: 4,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
     backgroundColor: colors.primary,
   },
 }));

@@ -13,14 +13,19 @@ import type { PersonResult } from '../../domain/entities/SearchResult';
 const AVATAR = 56;
 
 const useStyles = makeStyles(({ colors, spacing }) => ({
-  row: { flexDirection: 'row', alignItems: 'center', gap: spacing.md, paddingVertical: spacing.sm },
+  row: {
+    flexDirection: 'row' as const,
+    alignItems: 'center' as const,
+    gap: spacing.md,
+    paddingVertical: spacing.sm,
+  },
   avatar: {
     width: AVATAR,
     height: AVATAR,
     borderRadius: AVATAR / 2,
-    overflow: 'hidden',
-    alignItems: 'center',
-    justifyContent: 'center',
+    overflow: 'hidden' as const,
+    alignItems: 'center' as const,
+    justifyContent: 'center' as const,
     backgroundColor: colors.skeleton,
   },
   image: { width: AVATAR, height: AVATAR },
