@@ -63,3 +63,7 @@ export { TmdbGenreRepository } from './data/tmdb/TmdbGenreRepository';
 export { TmdbImageUrlBuilder } from './data/tmdb/TmdbImageUrlBuilder';
 export { TmdbPersonRepository } from './data/tmdb/TmdbPersonRepository';
 export { TmdbTitleRepository } from './data/tmdb/TmdbTitleRepository';
+
+export { mapMediaItem, mapPage, withPoster } from './data/tmdb/mappers/pageMapper';
+export type { TmdbMediaItemDto, TmdbPageDto } from './data/tmdb/dto/TmdbCommonDto';
+export { useTitlesByIds } from './application/hooks/useTitlesByIds';
