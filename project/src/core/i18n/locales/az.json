@@ -62,6 +62,74 @@
       "expired_card": "Kartın müddəti bitib.",
       "requires_authentication": "Ödənişi təsdiqləmək lazımdır.",
       "unknown": "Ödəniş zamanı xəta baş verdi."
-    }
+    },
+
+    "auth": {
+  "login": {
+    "title": "Daxil ol",
+    "subtitle": "CineVerse-ə xoş gəlmisiniz",
+    "submit": "Daxil ol",
+    "forgot": "Şifrəni unutmusunuz?",
+    "noAccount": "CineVerse-də yenisiniz?",
+    "register": "Hesab yarat",
+    "existingAccount": "Bu email ilə hesab artıq mövcuddur. Zəhmət olmasa daxil olun.",
+    "locked": "Çoxlu uğursuz cəhd. {{time}} sonra yenidən cəhd edin."
+  },
+  "register": {
+    "title": "Hesab yarat",
+    "subtitle": "Bir dəqiqəyə izləməyə başlayın",
+    "submit": "Hesab yarat",
+    "haveAccount": "Artıq hesabınız var?",
+    "login": "Daxil ol"
+  },
+  "forgot": {
+    "title": "Şifrəni bərpa et",
+    "subtitle": "Emailinizi daxil edin, sizə kod göndərək.",
+    "submit": "Kod göndər",
+    "back": "Daxil olmağa qayıt"
+  },
+  "otp": {
+    "title": "Kodu daxil edin",
+    "subtitle": "{{email}} ünvanına {{length}} rəqəmli kod göndərdik.",
+    "submit": "Təsdiqlə",
+    "blocked": "Çoxlu yanlış kod. Yeni kod tələb edin."
+  },
+  "verifyEmail": {
+    "title": "Emailinizi yoxlayın",
+    "subtitle": "{{email}} ünvanına təsdiq kodu göndərdik.",
+    "enterCode": "Kodu daxil et"
+  },
+  "reset": {
+    "title": "Yeni şifrə",
+    "subtitle": "Hesabınız üçün yeni şifrə seçin.",
+    "submit": "Şifrəni yadda saxla",
+    "cancel": "Ləğv et"
+  },
+  "resend": { "action": "Kodu yenidən göndər", "wait": "{{seconds}} san. sonra yenidən göndər" },
+  "strength": { "weak": "Zəif", "medium": "Orta", "strong": "Güclü" },
+  "terms": { "accept": "İstifadə Şərtləri və Məxfilik Siyasəti ilə razıyam" },
+  "social": { "divider": "və ya", "google": "Google ilə davam et" },
+  "biometric": {
+    "prompt": "Davam etmək üçün kimliyinizi təsdiqləyin",
+    "action": "Biometrik ilə daxil ol"
+  },
+  "field": {
+    "email": "Email",
+    "password": "Şifrə",
+    "confirmPassword": "Şifrəni təsdiqlə",
+    "newPassword": "Yeni şifrə",
+    "code": "Kod",
+    "show": "Göstər",
+    "hide": "Gizlət"
+  },
+  "validation": {
+    "emailRequired": "Emailinizi daxil edin.",
+    "emailInvalid": "Düzgün email ünvanı daxil edin.",
+    "passwordRequired": "Şifrənizi daxil edin.",
+    "passwordWeak": "Ən azı 8 simvol, hərf və rəqəm istifadə edin.",
+    "passwordMismatch": "Şifrələr uyğun gəlmir.",
+    "termsRequired": "Şərtlərlə razılaşmalısınız."
+  }
+}
   }
 }

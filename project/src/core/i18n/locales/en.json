@@ -62,6 +62,85 @@
       "expired_card": "The card has expired.",
       "requires_authentication": "The payment needs to be confirmed.",
       "unknown": "Something went wrong with the payment."
-    }
+    },
+  
+
+
+
+
+
+
+
+
+
+
+
+  "auth": {
+  "login": {
+    "title": "Sign in",
+    "subtitle": "Welcome back to CineVerse",
+    "submit": "Sign in",
+    "forgot": "Forgot password?",
+    "noAccount": "New to CineVerse?",
+    "register": "Create an account",
+    "existingAccount": "An account with this email already exists. Please sign in.",
+    "locked": "Too many failed attempts. Try again in {{time}}."
+  },
+  "register": {
+    "title": "Create account",
+    "subtitle": "Start watching in a minute",
+    "submit": "Create account",
+    "haveAccount": "Already have an account?",
+    "login": "Sign in"
+  },
+  "forgot": {
+    "title": "Reset password",
+    "subtitle": "Enter your email and we will send you a code.",
+    "submit": "Send code",
+    "back": "Back to sign in"
+  },
+  "otp": {
+    "title": "Enter the code",
+    "subtitle": "We sent a {{length}}-digit code to {{email}}.",
+    "submit": "Verify",
+    "blocked": "Too many wrong codes. Please request a new code."
+  },
+  "verifyEmail": {
+    "title": "Check your email",
+    "subtitle": "We sent a verification code to {{email}}.",
+    "enterCode": "Enter the code"
+  },
+  "reset": {
+    "title": "New password",
+    "subtitle": "Choose a new password for your account.",
+    "submit": "Save password",
+    "cancel": "Cancel"
+  },
+  "resend": { "action": "Resend code", "wait": "Resend in {{seconds}}s" },
+  "strength": { "weak": "Weak", "medium": "Medium", "strong": "Strong" },
+  "terms": { "accept": "I accept the Terms of Use and Privacy Policy" },
+  "social": { "divider": "or", "google": "Continue with Google" },
+  "biometric": {
+    "prompt": "Confirm your identity to continue",
+    "action": "Sign in with biometrics"
+  },
+  "field": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "newPassword": "New password",
+    "code": "Code",
+    "show": "Show",
+    "hide": "Hide"
+  },
+  "validation": {
+    "emailRequired": "Enter your email.",
+    "emailInvalid": "Enter a valid email address.",
+    "passwordRequired": "Enter your password.",
+    "passwordWeak": "Use at least 8 characters with letters and digits.",
+    "passwordMismatch": "Passwords do not match.",
+    "termsRequired": "You need to accept the terms."
   }
+}
+}
 }
