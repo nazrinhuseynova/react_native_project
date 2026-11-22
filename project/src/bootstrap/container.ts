@@ -59,6 +59,51 @@ import {
   type OnboardingStep,
 } from '@/features/onboarding';
 
+import {
+  AsyncRecentSearchRepository,
+  createSearchStrategyRegistry,
+  SearchOrchestrator,
+  TmdbSearchRepository,
+  type RecentSearchRepository,
+  type SearchRepository,
+  type SearchStrategy,
+} from '@/features/search';
+import {
+  createLibraryFilterRegistry,
+  createLibrarySortRegistry,
+  QueryLibrary,
+  SetWatchStatus,
+  SupabaseLibraryRepository,
+  ToggleFavorite,
+  ToggleSaved,
+  type LibraryFilter,
+  type LibraryRepository,
+  type LibrarySorter,
+} from '@/features/library';
+import {
+  AddReview,
+  DeleteReview,
+  EditReview,
+  ReviewPolicy,
+  SetReaction,
+  SupabaseReactionRepository,
+  SupabaseReviewRepository,
+  type ReactionRepository,
+  type ReviewRepository,
+} from '@/features/reviews';
+import {
+  ClearHistory,
+  CompletionPolicy,
+  ContinueWatchingSelector,
+  GetContinueWatching,
+  GetWatched,
+  LocalProgressBuffer,
+  progressFraction,
+  RemoveFromHistory,
+  SaveProgress,
+  SupabaseHistoryRepository,
+  type HistoryRepository,
+} from '@/features/history';
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 const OMDB_BASE_URL = 'https://www.omdbapi.com';
 
