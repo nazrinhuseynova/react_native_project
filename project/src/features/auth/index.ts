@@ -52,3 +52,4 @@ export { BiometricStrategy } from './data/strategies/BiometricStrategy';
 export { EmailOtpStrategy } from './data/strategies/EmailOtpStrategy';
 export { EmailPasswordStrategy } from './data/strategies/EmailPasswordStrategy';
 export { GoogleOAuthStrategy } from './data/strategies/GoogleOAuthStrategy';
+export { toAuthError } from './data/mappers/sessionMapper';

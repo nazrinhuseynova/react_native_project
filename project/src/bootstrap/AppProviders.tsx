@@ -3,6 +3,9 @@ import { type PropsWithChildren, useEffect, useState } from 'react';
 
 import { createPersistOptions, createQueryPersister } from '@/core/query/asyncPersister';
 import { AuthProvider } from '@/features/auth';
+import { ProfileProvider } from '@/features/profiles';
+import { ThemeProvider } from '@/shared/theme/ThemeProvider';
+import { ToastProvider } from '@/shared/ui/ToastProvider';
 
 import { createServices } from './container';
 import { ServicesProvider } from './ServicesProvider';
@@ -32,11 +35,17 @@ export function AppProviders({ children }: PropsWithChildren) {
 
   if (!isStarted) return null;
 
+
   return (
     <PersistQueryClientProvider client={services.queryClient} persistOptions={persistOptions}>
       <ServicesProvider services={services}>
-      
-        <AuthProvider>{children}</AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <ProfileProvider>
+              <ToastProvider>{children}</ToastProvider>
+            </ProfileProvider>
+          </AuthProvider>
+        </ThemeProvider>
       </ServicesProvider>
     </PersistQueryClientProvider>
   );

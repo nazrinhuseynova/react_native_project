@@ -19,10 +19,23 @@ import { ExpoNetworkMonitor } from '@/core/network/ExpoNetworkMonitor';
 import type { NetworkMonitor } from '@/core/network/NetworkMonitor';
 import { createQueryClient } from '@/core/query/queryClient';
 import type { Registry } from '@/core/registry/Registry';
+import { Hasher } from '@/core/security/Hasher';
 import { AsyncStorageAdapter } from '@/core/storage/AsyncStorageAdapter';
 import type { KeyValueStorage } from '@/core/storage/KeyValueStorage';
 import type { SecureStorage } from '@/core/storage/SecureStorage';
 import { SecureStoreAdapter } from '@/core/storage/SecureStoreAdapter';
+import {
+  ChangeEmail,
+  ChangePassword,
+  DeletionGracePolicy,
+  ListDevices,
+  RequestAccountDeletion,
+  RestoreAccount,
+  RevokeDevice,
+  StepUpAuthPolicy,
+  SupabaseAccountRepository,
+  type AccountRepository,
+} from '@/features/account';
 import {
   BiometricCredentialStore,
   BiometricStrategy,
@@ -50,6 +63,32 @@ import {
   type BiometricAuthStrategy,
   type DeviceRepository,
 } from '@/features/auth';
+import {
+  BlockTitle,
+  CompositePolicy,
+  createContentPolicyRegistry,
+  FilterTitles,
+  SetMaxMaturity,
+  SupabaseParentalRepository,
+  UnblockTitle,
+  type ContentPolicy,
+  type ParentalRepository,
+} from '@/features/parental';
+import {
+  CreateProfile,
+  DeleteProfile,
+  PinHasher,
+  PinPolicy,
+  ProfileLimitPolicy,
+  SetProfilePin,
+  SupabaseAvatarStorage,
+  SupabaseProfileRepository,
+  SwitchProfile,
+  UpdateProfile,
+  VerifyProfilePin,
+  type AvatarStorage,
+  type ProfileRepository,
+} from '@/features/profiles';
 
 export type AppEventBus = EventBusType<AppEvents>;
 
@@ -75,6 +114,45 @@ export type AuthServices = {
   };
 };
 
+export type ProfileServices = {
+  repository: ProfileRepository;
+  avatars: AvatarStorage;
+  create: CreateProfile;
+  update: UpdateProfile;
+  remove: DeleteProfile;
+  switch: SwitchProfile;
+  setPin: SetProfilePin;
+  verifyPin: VerifyProfilePin;
+  policies: {
+    limit: ProfileLimitPolicy;
+    pin: PinPolicy;
+  };
+};
+
+export type AccountServices = {
+  repository: AccountRepository;
+  changePassword: ChangePassword;
+  changeEmail: ChangeEmail;
+  requestDeletion: RequestAccountDeletion;
+  restore: RestoreAccount;
+  listDevices: ListDevices;
+  revokeDevice: RevokeDevice;
+  policies: {
+    stepUp: StepUpAuthPolicy;
+    grace: DeletionGracePolicy;
+  };
+};
+
+export type ParentalServices = {
+  repository: ParentalRepository;
+  registry: Registry<ContentPolicy>;
+  policy: CompositePolicy;
+  filterTitles: FilterTitles;
+  blockTitle: BlockTitle;
+  unblockTitle: UnblockTitle;
+  setMaxMaturity: SetMaxMaturity;
+};
+
 export type Services = {
   logger: Logger;
   eventBus: AppEventBus;
@@ -87,6 +165,9 @@ export type Services = {
   queryClient: QueryClient;
   deepLinks: DeepLinkRegistry;
   auth: AuthServices;
+  profiles: ProfileServices;
+  account: AccountServices;
+  parental: ParentalServices;
 };
 
 type AuthDeps = {
@@ -100,8 +181,7 @@ function createAuthServices({ supabase, secureStorage }: AuthDeps): AuthServices
   const biometricStore = new BiometricCredentialStore(secureStorage);
   const biometric = new BiometricStrategy(supabase, biometricStore);
 
-  // Yeni giriş üsulu = yeni Strategy faylı + bu siyahıya 1 sətir.
-  // Məs. sonradan: featureFlags.phoneLogin ? new PhoneOtpStrategy(supabase) : null
+
   const strategies = createAuthStrategyRegistry([
     new EmailPasswordStrategy(supabase),
     new GoogleOAuthStrategy(supabase),
@@ -135,6 +215,70 @@ function createAuthServices({ supabase, secureStorage }: AuthDeps): AuthServices
   };
 }
 
+type ProfileDeps = {
+  supabase: SupabaseClient;
+  storage: KeyValueStorage;
+  eventBus: AppEventBus;
+};
+
+function createProfileServices({ supabase, storage, eventBus }: ProfileDeps): ProfileServices {
+  const repository = new SupabaseProfileRepository(supabase);
+  const avatars = new SupabaseAvatarStorage(supabase);
+  const crypto = new PinHasher(new Hasher());
+  const limit = new ProfileLimitPolicy();
+  const pin = new PinPolicy();
+
+  return {
+    repository,
+    avatars,
+    create: new CreateProfile(repository, limit, avatars),
+    update: new UpdateProfile(repository, avatars),
+    remove: new DeleteProfile(repository, avatars),
+    switch: new SwitchProfile(repository, storage, eventBus),
+    setPin: new SetProfilePin(repository, crypto, pin, storage),
+    verifyPin: new VerifyProfilePin(repository, crypto, pin, storage),
+    policies: { limit, pin },
+  };
+}
+
+type AccountDeps = {
+  supabase: SupabaseClient;
+  auth: AuthServices;
+  deviceInfo: DeviceInfoProvider;
+};
+
+function createAccountServices({ supabase, auth, deviceInfo }: AccountDeps): AccountServices {
+  const repository = new SupabaseAccountRepository(supabase);
+  const grace = new DeletionGracePolicy();
+
+  return {
+    repository,
+    changePassword: new ChangePassword(repository, auth.policies.password),
+    changeEmail: new ChangeEmail(repository),
+    requestDeletion: new RequestAccountDeletion(repository, grace),
+    restore: new RestoreAccount(repository, grace),
+    listDevices: new ListDevices(auth.devices, deviceInfo),
+    revokeDevice: new RevokeDevice(auth.devices, deviceInfo),
+    policies: { stepUp: new StepUpAuthPolicy(), grace },
+  };
+}
+
+function createParentalServices({ supabase }: { supabase: SupabaseClient }): ParentalServices {
+  const repository = new SupabaseParentalRepository(supabase);
+  const registry = createContentPolicyRegistry();
+  const policy = new CompositePolicy(registry.all());
+
+  return {
+    repository,
+    registry,
+    policy,
+    filterTitles: new FilterTitles(policy),
+    blockTitle: new BlockTitle(repository),
+    unblockTitle: new UnblockTitle(repository),
+    setMaxMaturity: new SetMaxMaturity(repository),
+  };
+}
+
 export function createServices(): Services {
   const logger = new ConsoleLogger();
   const storage = new AsyncStorageAdapter();
@@ -153,6 +297,9 @@ export function createServices(): Services {
   const sinks: AnalyticsSink[] = [new ConsoleSink(logger)];
   if (featureFlags.analytics) sinks.push(new SupabaseSink(supabase));
 
+  const deviceInfo = new ExpoDeviceInfoProvider(secureStorage);
+  const auth = createAuthServices({ supabase, secureStorage });
+
   return {
     logger,
     eventBus,
@@ -160,10 +307,13 @@ export function createServices(): Services {
     networkMonitor,
     storage,
     secureStorage,
-    deviceInfo: new ExpoDeviceInfoProvider(secureStorage),
+    deviceInfo,
     supabase,
     queryClient: createQueryClient(networkMonitor),
     deepLinks: new DeepLinkRegistry(),
-    auth: createAuthServices({ supabase, secureStorage }),
+    auth,
+    profiles: createProfileServices({ supabase, storage, eventBus }),
+    account: createAccountServices({ supabase, auth, deviceInfo }),
+    parental: createParentalServices({ supabase }),
   };
 }
